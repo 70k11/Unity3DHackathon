@@ -5,6 +5,7 @@ using UnityEngine;
 public class Enemy : MonoBehaviour
 {
     UIManager currentUIManager;
+
     public void Init(UIManager uIManager)
     {
         currentUIManager = uIManager;
@@ -25,6 +26,7 @@ public class Enemy : MonoBehaviour
             {
                 //GetComponent<Renderer>().material.color = Color.black;
                 Destroy(gameObject);
+                currentUIManager.Hit();
             }
         }
     }

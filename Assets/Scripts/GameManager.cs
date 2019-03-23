@@ -4,15 +4,34 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    public GameData CurrentGameData;
+
+    public delegate void DataChanged();
+    public static event DataChanged OnDataChanged;
+
+    public int Points
     {
-        
+        get
+        {
+            return CurrentGameData.Points;
+        }
+        private set
+        {
+            CurrentGameData.Points = value;
+            if (OnDataChanged != null)
+            {
+                OnDataChanged();
+            }
+        }
     }
 
-    // Update is called once per frame
-    void Update()
+    public void GetPoints()
     {
-        
+        Points++;
+        if (OnDataChanged != null)
+        {
+            OnDataChanged();
+        }
     }
+
 }
