@@ -6,8 +6,7 @@ namespace UnityStandardAssets.SceneUtils
 {
     public class PlaceTargetWithMouse : MonoBehaviour
     {
-        public float surfaceOffset = 1.5f;
-        public GameObject setTargetOn;
+        public GameObject Explosion;
 
         // Update is called once per frame
         private void Update()
@@ -22,10 +21,10 @@ namespace UnityStandardAssets.SceneUtils
             {
                 return;
             }
-            transform.position = hit.point + hit.normal*surfaceOffset;
-            if (setTargetOn != null)
+            var targetPosition = hit.point + hit.normal;
+            if (Explosion != null)
             {
-                setTargetOn.SendMessage("SetTarget", transform);
+                Instantiate(Explosion, targetPosition , Quaternion.identity);
             }
         }
     }
