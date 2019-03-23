@@ -26,7 +26,7 @@ public class Enemy : MonoBehaviour
             {
                 //GetComponent<Renderer>().material.color = Color.black;
                 Destroy(gameObject);
-                currentUIManager.Hit();
+                
             }
         }
     }
