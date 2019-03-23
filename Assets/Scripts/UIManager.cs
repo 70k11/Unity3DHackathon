@@ -16,7 +16,10 @@ public class UIManager : MonoBehaviour
         CurrentGameManager.GetPoints();
         PointsValue.text = CurrentGameManager.Points.ToString();
     }
-
+    private void Update()
+    {
+        ShowTime();
+    }
     public void ShowTime()
     {
         timeLeft += Time.deltaTime;

@@ -17,7 +17,6 @@ public class Enemy : MonoBehaviour
         if (dist > range)
         {
             //GetComponent<Renderer>().material.color = Color.yellow;
-
         }
         else
         {
@@ -29,6 +28,7 @@ public class Enemy : MonoBehaviour
                 
             }
         }
+        currentUIManager?.Hit();
     }
 
 
